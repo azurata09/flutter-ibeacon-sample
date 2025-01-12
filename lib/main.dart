@@ -47,8 +47,11 @@ class _BeaconScannerScreenState extends State<BeaconScannerScreen> {
     // Define the UUID of the beacon you want to scan for
     final regions = <Region>[
       Region(
-        identifier: '10c542a5-12d7-15c2-0d9d-b3ad9fc35a4d',
-        proximityUUID: '10c542a5-12d7-15c2-0d9d-b3ad9fc35a4d'),
+        identifier: 'me.azurata.foip',
+        proximityUUID: '10c542a5-12d7-15c2-0d9d-b3ad9fc35a4d',
+        major: 100,
+        minor: 200,
+      ),
     ];
 
     // Start ranging for beacons
@@ -56,7 +59,11 @@ class _BeaconScannerScreenState extends State<BeaconScannerScreen> {
 
     // Listen to the stream
     _streamRanging?.listen((RangingResult result) {
-      print("Listened!");
+      if (result.beacons.isEmpty) {
+        print('No beacons found');
+        return;
+      }
+
       setState(() {
         // Handle the ranging result here
         print('Beacons found: ${result.beacons}');
