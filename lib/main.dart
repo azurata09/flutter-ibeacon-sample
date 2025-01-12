@@ -47,11 +47,12 @@ class _BeaconScannerScreenState extends State<BeaconScannerScreen> {
     // Define the UUID of the beacon you want to scan for
     final regions = <Region>[
       Region(
-        identifier: 'me.azurata.foip',
-        proximityUUID: '10c542a5-12d7-15c2-0d9d-b3ad9fc35a4d',
-        major: 100,
-        minor: 200,
+        identifier: 'me.azurata.foip.android',
+        proximityUUID: '2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6',
       ),
+      Region(
+          identifier: 'me.azurata.foip.esp32',
+          proximityUUID: '2D7A9F0C-E0E8-4CC9-A71B-A21DB2D034A1'),
     ];
 
     // Start ranging for beacons
